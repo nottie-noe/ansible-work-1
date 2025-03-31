@@ -1,0 +1,44 @@
+---
+- name: Update node-1 servers
+  hosts: node-1
+
+  tasks:
+  - name: Create Directory
+    file:
+      path: /home/ec2-user/new_dir
+      state: directory   
+
+  - name: Create Directory
+    file:
+      path: /home/ec2-user/new_dir_1
+      state: directory   
+
+- name: Update node-2 servers
+  hosts: node-2
+
+  tasks:
+  - name: Create Directory
+    file:
+      path: /home/ec2-user/new_dir_1
+      state: directory
+
+  - name: Create Directory
+    file:
+      path: /home/ec2-user/new_dir_2
+      state: directory
+
+- name: Update group1 servers
+  hosts: g1
+
+  tasks:
+  - name: Create Directory
+    file:
+      path: /home/ec2-user/new_dir_gr1
+      state: directory
+
+  - name: Create Directory
+    file:
+      path: /home/ec2-user/new_dir_g2
+      state: directory
+
+...           
