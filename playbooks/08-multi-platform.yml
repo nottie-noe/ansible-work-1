@@ -4,44 +4,43 @@
   become: yes
 
   tasks:
-  - name: Install HTTPD
+  - name: Install HTTPD (Amazon Linux)
     yum:
       name: httpd
       state: present
-    when: ansible_disribution == "Amazon"
+    when: ansible_distribution == "Amazon"
 
-  - name: start httpd
+  - name: Start HTTPD
     service:
       name: httpd
       state: started  
-    when: ansible_disribution == "Amazon"
+    when: ansible_distribution == "Amazon"
 
   - name: Enable HTTPD
     service:
       name: httpd
       enabled: yes 
-    when: ansible_disribution == "Amazon"
+    when: ansible_distribution == "Amazon"
 
-  - name: Update package cache
+  - name: Update package cache (Ubuntu)
     apt:
       update_cache: yes
+    when: ansible_distribution == "Ubuntu"
   
-  - name: Install Apache2
+  - name: Install Apache2 (Ubuntu)
     apt:
       name: apache2
       state: present   
-    when: ansible_disribution == "Ubuntu"
+    when: ansible_distribution == "Ubuntu"
 
-  - name: start apache2
+  - name: Start Apache2
     service:
       name: apache2
       state: started  
-    when: ansible_disribution == "Ubuntu"
+    when: ansible_distribution == "Ubuntu"
 
-  - name: Enable apache2
+  - name: Enable Apache2
     service:
       name: apache2
       enabled: yes 
-    when: ansible_distribution =="Ubuntu"
-    
-...           
+    when: ansible_distribution == "Ubuntu"
