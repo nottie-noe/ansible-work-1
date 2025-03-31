@@ -1,0 +1,12 @@
+---
+- name: Update node-1 servers
+  hosts: node-1
+  remote_user: root
+
+  tasks:
+  - name: Create Directory
+    file:
+      path: /home/ec2-user/new_dir
+      state: directory
+
+...      
