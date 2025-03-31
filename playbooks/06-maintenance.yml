@@ -1,12 +1,18 @@
----
+--- 
 - name: Under maintenance
   hosts: node-2
   become: yes
-
+  
   tasks:
-  - name: Update maintenance
-    copy:
-      src: Maintenance.html
-      dest: /var/www/html/index.html  
+    - name: Ensure target directory exists
+      file:
+        path: /var/www/html
+        state: directory
+        mode: '0755'
 
-... 
+    - name: Copy maintenance page
+      copy:
+        src: Maintenance.html
+        dest: /var/www/html/index.html
+        mode: '0644'
+...
