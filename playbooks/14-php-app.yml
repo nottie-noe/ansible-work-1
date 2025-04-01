@@ -1,0 +1,10 @@
+---
+- name: Deploy php App
+  hosts: node-8
+  become: yes
+
+  roles:
+    - apache
+    - php
+
+...          

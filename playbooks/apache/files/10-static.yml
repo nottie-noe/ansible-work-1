@@ -1,0 +1,19 @@
+---
+- name: Static page
+  hosts: g1
+  become: yes
+
+  tasks:
+    - name: Ensure target directory exists
+      file:
+        path: /var/www/html
+        state: directory
+        mode: '0755'
+
+    - name: Update static page
+      copy:
+        src: static.html
+        dest: /var/www/html/static.html
+        mode: '0644'
+
+...

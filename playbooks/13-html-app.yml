@@ -1,0 +1,10 @@
+---
+- name: Deploy html App
+  hosts: node-8
+  become: yes
+
+  roles:
+    - apache
+    - html
+
+...           

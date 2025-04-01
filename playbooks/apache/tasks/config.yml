@@ -1,0 +1,20 @@
+---  
+    - name: Ensure target directory exists
+      file:
+        path: /var/www/html
+        state: directory
+        mode: '0755'
+
+    - name: Update static page
+      copy:
+        src: static.html
+        dest: /var/www/html/static.html
+        mode: '0644'
+
+    - name: Update Dynamic pagepage
+      template:
+        src: dynamic.j2
+        dest: /var/www/html/dynamic.html
+        mode: '0644'
+
+...
