@@ -13,6 +13,6 @@
     - name: Copy and render static page
       template:
         src: dynamic.j2
-        dest: /var/www/html/dynamic.j2
+        dest: /var/www/html/dynamic.html
         mode: '0644'
 ...
